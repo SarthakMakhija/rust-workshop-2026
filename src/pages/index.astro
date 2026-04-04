@@ -1,0 +1,43 @@
+---
+import Book from '../components/Book';
+import '../styles/index.css';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Rust Workshop - RootConf 2026</title>
+		<meta name="description" content="Interactive Rust Workshop sessions at RootConf 2026" />
+	</head>
+	<body>
+		<main>
+			<Book client:load />
+		</main>
+	</body>
+</html>
+
+<style>
+	:root {
+		--bg-color: #1a1a1a;
+	}
+	
+	html, body {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--bg-color);
+		overflow: hidden;
+	}
+
+	main {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+		width: 100%;
+	}
+</style>
