@@ -35,6 +35,23 @@ import {
   GenericCacheImpl,
   GenericTests
 } from './sections/section3/Index';
+import { Section4Cover } from './sections/section4/Index';
+import { Section5Cover } from './sections/section5/Index';
+import {
+  Section6Cover,
+  Section6Intro,
+  ConcurrencyIntro,
+  CompilationError,
+  ThreadSafeWrapper,
+  RAIIGuards,
+  InnerLockingDrop,
+  TheDerefTrait,
+  TheUnwrapMystery,
+  TheBrokenGet,
+  OwnershipShift,
+  SafeCacheImpl,
+  ThreadSafeTests
+} from './sections/section6/Index';
 
 const Book: React.FC = () => {
   const bookRef = useRef<any>(null);
@@ -108,6 +125,27 @@ const Book: React.FC = () => {
         <TheBorrowTrait number={26} />
         <GenericCacheImpl number={27} />
         <GenericTests number={28} />
+
+        {/* Stage 4 Placeholder */}
+        <Section4Cover number={29} />
+
+        {/* Stage 5 Placeholder */}
+        <Section5Cover number={30} />
+
+        {/* Stage 6 */}
+        <Section6Cover number={31} />
+        <Section6Intro number={32} />
+        <ConcurrencyIntro number={33} />
+        <CompilationError number={34} />
+        <ThreadSafeWrapper number={35} />
+        <RAIIGuards number={36} />
+        <InnerLockingDrop number={37} />
+        <TheDerefTrait number={38} />
+        <TheUnwrapMystery number={39} />
+        <TheBrokenGet number={40} />
+        <OwnershipShift number={41} />
+        <SafeCacheImpl number={42} />
+        <ThreadSafeTests number={43} />
       </HTMLFlipBook>
 
       <div className="controls">

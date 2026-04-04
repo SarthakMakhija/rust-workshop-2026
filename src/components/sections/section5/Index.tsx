@@ -1,26 +1,14 @@
 import React, { forwardRef } from 'react';
 import Page from '../../Page';
 
-const Strings = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
+export const Section5Cover = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">4. String, str, &str</h2>
-      <div className="content-block">
-        One of the most common hurdles for newcomers is understanding the "Three String Types".
+    <div className="page cover-page" data-density="hard" ref={ref}>
+      <div className="page-content">
+        <h1 className="cover-title">STAGE 5</h1>
+        <div className="cover-subtitle">Coming Soon</div>
       </div>
-      <ul style={{ paddingLeft: '1.5rem', lineHeight: '1.8' }}>
-        <li><span className="keyword">String</span>: A growable, heap-allocated buffer. Owns its data.</li>
-        <li><span className="keyword">str</span>: An immutable sequence of UTF-8 bytes of unknown length.</li>
-        <li><span className="keyword">&str</span>: A "string slice". A reference to string data stored elsewhere.</li>
-      </ul>
-      <div className="code-snippet">
-        <pre>
-{`let s: String = "Hello".to_string();
-let slice: &str = &s; // Borrowing`}
-        </pre>
-      </div>
-    </Page>
+      <div className="page-number">{props.number}</div>
+    </div>
   );
 });
-
-export default Strings;
