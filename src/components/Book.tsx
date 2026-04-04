@@ -52,6 +52,17 @@ import {
   SafeCacheImpl,
   ThreadSafeTests
 } from './sections/section6/Index';
+import {
+  Section7Cover,
+  Section7Intro,
+  TheCloningTax,
+  IntroducingArc,
+  ArcMechanics,
+  ArcInsideCache,
+  ArcDeref,
+  FinalArcImplementation,
+  ArcTests
+} from './sections/section7/Index';
 
 const Book: React.FC = () => {
   const bookRef = useRef<any>(null);
@@ -146,6 +157,17 @@ const Book: React.FC = () => {
         <OwnershipShift number={41} />
         <SafeCacheImpl number={42} />
         <ThreadSafeTests number={43} />
+
+        {/* Stage 7 */}
+        <Section7Cover number={44} />
+        <Section7Intro number={45} />
+        <TheCloningTax number={46} />
+        <IntroducingArc number={47} />
+        <ArcMechanics number={48} />
+        <ArcInsideCache number={49} />
+        <ArcDeref number={50} />
+        <FinalArcImplementation number={51} />
+        <ArcTests number={52} />
       </HTMLFlipBook>
 
       <div className="controls">
