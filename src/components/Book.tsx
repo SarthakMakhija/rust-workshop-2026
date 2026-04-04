@@ -63,6 +63,17 @@ import {
   FinalArcImplementation,
   ArcTests
 } from './sections/section7/Index';
+import {
+  Section8Cover,
+  Section8Intro,
+  CustomRefPattern,
+  LifetimeAnchor,
+  ThePointerTrick,
+  UnsafeDeref,
+  LockTradeoff,
+  ZeroCopyTests,
+  Section8Summary
+} from './sections/section8/Index';
 
 const Book: React.FC = () => {
   const bookRef = useRef<any>(null);
@@ -168,6 +179,17 @@ const Book: React.FC = () => {
         <ArcDeref number={50} />
         <FinalArcImplementation number={51} />
         <ArcTests number={52} />
+
+        {/* Stage 8 */}
+        <Section8Cover number={53} />
+        <Section8Intro number={54} />
+        <CustomRefPattern number={55} />
+        <LifetimeAnchor number={56} />
+        <ThePointerTrick number={57} />
+        <UnsafeDeref number={58} />
+        <LockTradeoff number={59} />
+        <ZeroCopyTests number={60} />
+        <Section8Summary number={61} />
       </HTMLFlipBook>
 
       <div className="controls">
