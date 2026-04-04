@@ -83,6 +83,18 @@ import {
   SendAndSync,
   FinalVerification
 } from './sections/section9/Index';
+import { Section10Cover } from './sections/section10/Index';
+import { Section11Cover } from './sections/section11/Index';
+import { Section12Cover } from './sections/section12/Index';
+import {
+  Section13Cover,
+  ShutdownIntro,
+  NaiveApproach,
+  OwnershipTermination,
+  TypeStateConcept,
+  CompilerAsGuard,
+  Section13Summary
+} from './sections/section13/Index';
 
 const Book: React.FC = () => {
   const bookRef = useRef<any>(null);
@@ -208,6 +220,20 @@ const Book: React.FC = () => {
         <SharedCacheArc number={66} />
         <SendAndSync number={67} />
         <FinalVerification number={68} />
+
+        {/* Placeholders for 10, 11, 12 */}
+        <Section10Cover number={69} />
+        <Section11Cover number={70} />
+        <Section12Cover number={71} />
+
+        {/* Stage 13 */}
+        <Section13Cover number={72} />
+        <ShutdownIntro number={73} />
+        <NaiveApproach number={74} />
+        <OwnershipTermination number={75} />
+        <TypeStateConcept number={76} />
+        <CompilerAsGuard number={77} />
+        <Section13Summary number={78} />
       </HTMLFlipBook>
 
       <div className="controls">

@@ -148,6 +148,11 @@ code, pre {
   font-style: italic;
 }
 
+.code-error-comment {
+  color: var(--error-color) !important;
+  font-weight: 600;
+}
+
 .error-text .code-comment {
   color: inherit !important;
 }
