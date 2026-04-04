@@ -74,6 +74,15 @@ import {
   ZeroCopyTests,
   Section8Summary
 } from './sections/section8/Index';
+import {
+  Section9Cover,
+  BeyondScope,
+  TheOwnershipWall,
+  FoundationOfConcurrency,
+  SharedCacheArc,
+  SendAndSync,
+  FinalVerification
+} from './sections/section9/Index';
 
 const Book: React.FC = () => {
   const bookRef = useRef<any>(null);
@@ -190,6 +199,15 @@ const Book: React.FC = () => {
         <LockTradeoff number={59} />
         <ZeroCopyTests number={60} />
         <Section8Summary number={61} />
+
+        {/* Stage 9 */}
+        <Section9Cover number={62} />
+        <BeyondScope number={63} />
+        <TheOwnershipWall number={64} />
+        <FoundationOfConcurrency number={65} />
+        <SharedCacheArc number={66} />
+        <SendAndSync number={67} />
+        <FinalVerification number={68} />
       </HTMLFlipBook>
 
       <div className="controls">
