@@ -77,7 +77,7 @@ export const Stage1Roadmap = forwardRef<HTMLDivElement, { number: number }>((pro
 export const BasicCache = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">1. Basic Cache</h2>
+      <h2 className="section-title">Basic Cache</h2>
       <div className="content-block">
         Our journey begins with a simple <span className="keyword">Key-Value</span> store. In Rust, we need to be explicit about ownership.
       </div>
@@ -101,7 +101,7 @@ struct Cache {
 export const Operations = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-left">
-      <h2 className="section-title">2. Get & Put Operations</h2>
+      <h2 className="section-title">Get & Put Operations</h2>
       <div className="content-block">
         To interact with our cache, we need two fundamental operations. Let's look at the signatures carefully:
       </div>
@@ -139,7 +139,7 @@ export const Operations = forwardRef<HTMLDivElement, { number: number }>((props,
 export const StructsReferences = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">3. Structs & References</h2>
+      <h2 className="section-title">Structs & References</h2>
       <div className="content-block">
         Rust provides three ways to define structure:
       </div>
@@ -172,7 +172,7 @@ let white = Color(255, 255, 255);`}
 export const MethodReceivers = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-left">
-      <h2 className="section-title">4. Method Receivers</h2>
+      <h2 className="section-title">Method Receivers</h2>
       <div className="content-block">
         In Rust, methods use special <span className="keyword">self</span> parameters to define access:
       </div>
@@ -194,7 +194,7 @@ export const MethodReceivers = forwardRef<HTMLDivElement, { number: number }>((p
 export const StringLayout = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">5. String Memory Layout</h2>
+      <h2 className="section-title">String Memory Layout</h2>
       <div className="content-block">
         Before we optimize, we must understand how a <span className="keyword">String</span> actually lives in memory. It is a "Handle" pointing to a "Buffer".
       </div>
@@ -241,7 +241,7 @@ export const StringLayout = forwardRef<HTMLDivElement, { number: number }>((prop
 export const OwnershipDetails = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-left">
-      <h2 className="section-title">6. Ownership & Structs</h2>
+      <h2 className="section-title">Ownership & Structs</h2>
       <div className="content-block">
         When a struct contains a <span className="keyword">String</span>, we say the struct <span className="keyword">owns</span> that string. This has deep implications:
       </div>
@@ -264,7 +264,7 @@ export const OwnershipDetails = forwardRef<HTMLDivElement, { number: number }>((
 export const AllocationProblem = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">7. The Allocation Problem</h2>
+      <h2 className="section-title">The Allocation Problem</h2>
       <div className="content-block">
         Now look back at our <span className="keyword">get(&String)</span> signature. Because it expects a reference to a full String object, the caller is forced to allocate!
       </div>
@@ -292,7 +292,7 @@ fn test_get_allocation() {
 export const StringTypes = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-left">
-      <h2 className="section-title">8. String, str, and &str</h2>
+      <h2 className="section-title">String, str, and &str</h2>
       <div className="content-block" style={{ fontSize: '0.9rem' }}>
         To solve the allocation problem, we must understand the three faces of text in Rust:
       </div>
@@ -330,7 +330,7 @@ export const StringTypes = forwardRef<HTMLDivElement, { number: number }>((props
 export const OptimizedCache = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">9. Zero-Allocation Get</h2>
+      <h2 className="section-title">Zero-Allocation Get</h2>
       <div className="content-block">
         By changing <span className="keyword">&String</span> to <span className="keyword">&str</span>, we allow the caller to pass string literals directly!
       </div>

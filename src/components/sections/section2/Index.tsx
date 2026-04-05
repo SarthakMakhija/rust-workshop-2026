@@ -53,7 +53,7 @@ export const Section2Roadmap = forwardRef<HTMLDivElement, { number: number }>((p
 export const PrimitiveObsession = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">1. The Mixing Problem</h2>
+      <h2 className="section-title">The Mixing Problem</h2>
       <div className="content-block">
         Consider our current <span className="keyword">put</span> signature:
       </div>
@@ -80,7 +80,7 @@ cache.put(value_string, key_string); `} className="error-text" />
 export const NewTypePattern = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-left">
-      <h2 className="section-title">2. Introduce NewType</h2>
+      <h2 className="section-title">Introduce NewType</h2>
       <div className="content-block">
         In Rust, we can create thin wrappers around types called the <span className="keyword">NewType Pattern</span>.
       </div>
@@ -99,7 +99,7 @@ struct CacheValue(String);`} />
 export const DerivingTraits = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">3. Understanding Traits</h2>
+      <h2 className="section-title">Understanding Traits</h2>
       <div className="content-block" style={{ fontSize: '0.85rem' }}>
         A <span className="keyword">Trait</span> is a contract that defines what a type can do (similar to Interfaces). To use <code>CacheKey</code> in a HashMap, we need behavioral traits:
       </div>
@@ -124,7 +124,7 @@ struct CacheKey(String);`} style={{ fontSize: '0.8rem' }} />
 export const TypeSafeCache = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-left">
-      <h2 className="section-title">4. Refined Implementation</h2>
+      <h2 className="section-title">Refined Implementation</h2>
       <div className="content-block">
         Let's update our Cache to use these specific types:
       </div>
@@ -149,7 +149,7 @@ impl Cache {
 export const SafetyVerification = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">5. Safety Verification</h2>
+      <h2 className="section-title">Safety Verification</h2>
       <div className="content-block">
         The true power of this pattern is felt during compilation:
       </div>

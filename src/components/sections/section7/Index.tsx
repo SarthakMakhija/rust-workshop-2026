@@ -43,7 +43,7 @@ export const Section7Intro = forwardRef<HTMLDivElement, { number: number }>((pro
 export const TheCloningTax = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-left">
-      <h2 className="section-title">1. The Cloning Tax</h2>
+      <h2 className="section-title">The Cloning Tax</h2>
       <div className="content-block">
         Our Stage 6 <code>get</code> solved the "Broken Get" problem by using <code>.cloned()</code>. While simple, it has a hidden cost:
       </div>
@@ -63,7 +63,7 @@ fn get(&self, key: &K) -> Option<V> {
 export const IntroducingArc = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">2. Introducing Arc</h2>
+      <h2 className="section-title">Introducing Arc</h2>
       <div className="content-block">
         To share ownership across threads, we use <span className="keyword">Arc</span> (Atomic Reference Counted).
       </div>
@@ -86,7 +86,7 @@ let thread_handle = Arc::clone(&shared_data); // Cheap!`} style={{ fontSize: '0.
 export const ArcMechanics = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-left">
-      <h2 className="section-title">3. How Arc Works</h2>
+      <h2 className="section-title">How Arc Works</h2>
       <div className="content-block">
         Internally, <code>Arc</code> is a pointer to an <code>ArcInner</code> struct on the heap, which stores both the reference counts and your data.
       </div>
@@ -120,7 +120,7 @@ struct ArcInner<T: ?Sized> {
 export const ArcInsideCache = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">4. Storing Arc in Cache</h2>
+      <h2 className="section-title">Storing Arc in Cache</h2>
       <div className="content-block">
         Let's modify our <code>Cache</code> to store values wrapped in <code>Arc</code>.
       </div>
@@ -140,7 +140,7 @@ export const ArcInsideCache = forwardRef<HTMLDivElement, { number: number }>((pr
 export const ArcDeref = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-left">
-      <h2 className="section-title">5. Using Arc Data</h2>
+      <h2 className="section-title">Using Arc Data</h2>
       <div className="content-block">
         Just like the <code>Guard</code> we learned in Stage 6, <code>Arc</code> implements the <span className="keyword">Deref</span> trait.
       </div>

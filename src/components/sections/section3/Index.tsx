@@ -42,7 +42,7 @@ export const Section3Intro = forwardRef<HTMLDivElement, { number: number }>((pro
 export const IntroducingGenerics = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-left">
-      <h2 className="section-title">1. Introducing Generics</h2>
+      <h2 className="section-title">Introducing Generics</h2>
       <div className="content-block">
         Until now, our <code>Cache</code> was hardcoded. Let's make it flexible by using placeholders <span className="keyword">K</span> and <span className="keyword">V</span>.
       </div>
@@ -61,7 +61,7 @@ export const IntroducingGenerics = forwardRef<HTMLDivElement, { number: number }
 export const TraitBounds = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">2. Trait Bounds</h2>
+      <h2 className="section-title">Trait Bounds</h2>
       <div className="content-block">
         But wait! A <code>HashMap</code> cannot use *just any* type as a key. If we try to compile the previous snippet, Rust yells at us:
       </div>
@@ -83,7 +83,7 @@ error[E0277]: the trait bound 'K: Hash' is not satisfied
 export const GenericSyntax = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-left">
-      <h2 className="section-title">3. The Syntax of Bounds</h2>
+      <h2 className="section-title">The Syntax of Bounds</h2>
       <div className="content-block">
         Rust offers two ways to define these constraints:
       </div>
@@ -111,7 +111,7 @@ where
 export const TheBorrowTrait = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">4. The Borrow Mystery</h2>
+      <h2 className="section-title">The Borrow Mystery</h2>
       <div className="content-block">
         Remember the question from Stage 1: How does a <code>HashMap{"<"}String, V{">"}</code> allow a <code>&str</code> as a key for lookups?
       </div>
@@ -140,7 +140,7 @@ where K: Hash + Eq
 export const GenericCacheImpl = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-left">
-      <h2 className="section-title">5. Final Implementation</h2>
+      <h2 className="section-title">Final Implementation</h2>
       <div className="content-block">
         Our fully generic, allocation-optimized cache looks like this:
       </div>
@@ -184,7 +184,7 @@ where K: Hash + Eq
 export const GenericTests = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">6. Comprehensive Testing</h2>
+      <h2 className="section-title">Comprehensive Testing</h2>
       <div className="content-block">
         One implementation, many types. Let's verify:
       </div>

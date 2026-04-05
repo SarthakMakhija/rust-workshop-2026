@@ -98,7 +98,7 @@ error[E0499]: cannot borrow 'cache' as mutable more than once`} className="error
 export const ThreadSafeWrapper = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-left">
-      <h2 className="section-title">1. Interior Mutability</h2>
+      <h2 className="section-title">Interior Mutability</h2>
       <div className="content-block">
         To allow multiple threads to access our cache, we wrap our HashMap in a "Synchronization Primitive". Let's use an <span className="keyword">RwLock</span> (Read-Write Lock).
       </div>
@@ -119,7 +119,7 @@ struct Cache<K, V> {
 export const RAIIGuards = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">2. RAII & Lock Guards</h2>
+      <h2 className="section-title">RAII & Lock Guards</h2>
       <div className="content-block">
         In Rust, you don't manually call <code>unlock()</code>. Instead, when you call <code>.write()</code>, it returns a <b>Guard</b>.
       </div>
@@ -172,7 +172,7 @@ impl<T: ?Sized> Drop for RwLockWriteGuard<'_, T> {
 export const TheDerefTrait = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-left">
-      <h2 className="section-title">3. The Deref Magic</h2>
+      <h2 className="section-title">The Deref Magic</h2>
       <div className="content-block">
         Wait! <code>guard</code> is an <code>RwLockWriteGuard</code>, not a <code>HashMap</code>. How did we call <code>.insert()</code> on it?
       </div>
@@ -193,7 +193,7 @@ export const TheDerefTrait = forwardRef<HTMLDivElement, { number: number }>((pro
 export const TheUnwrapMystery = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">4. Why unwrap()?</h2>
+      <h2 className="section-title">Why unwrap()?</h2>
       <div className="content-block">
         If a thread holding the lock **panics**, the lock becomes "Poisoned". Rust prevents other threads from accessing potentially inconsistent data.
       </div>
@@ -211,7 +211,7 @@ let guard = self.data.write().unwrap();`} style={{ fontSize: '0.85rem' }} />
 export const TheBrokenGet = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-left">
-      <h2 className="section-title">5. The Broken 'Get'</h2>
+      <h2 className="section-title">The Broken 'Get'</h2>
       <div className="content-block">
         Our previous <code>get</code> returned <code>Option{"<"}&V{">"}</code>. But with a Lock, the compiler sees a fatal flaw:
       </div>
@@ -243,7 +243,7 @@ export const TheBrokenGet = forwardRef<HTMLDivElement, { number: number }>((prop
 export const OwnershipShift = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">6. Ownership to the Rescue</h2>
+      <h2 className="section-title">Ownership to the Rescue</h2>
       <div className="content-block">
         To solve the lifetime paradox, we must return an <b>owned value</b>. This means we must **Clone** the data out of the cache before the guard is dropped.
       </div>
