@@ -69,8 +69,9 @@ export const Stage1Roadmap = forwardRef<HTMLDivElement, { number: number }>((pro
         <ul style={{ paddingLeft: '1.5rem', lineHeight: '2.2' }}>
           <li><strong>Basic Cache implementation</strong>: Our starting point.</li>
           <li><strong>Get & Put Operations</strong>: Defining the API.</li>
-          <li><strong>Structs & References</strong>: Understanding physical layout.</li>
-          <li><strong>Borrowing</strong>: <code>&self</code> vs <code>&mut self</code>.</li>
+          <li><strong>References</strong>: Shared (&T) vs Mutable (&mut T).</li>
+          <li><strong>Struct Types</strong>: Physical layout.</li>
+          <li><strong>Method Receivers</strong>: <code>&self</code> vs <code>&mut self</code>.</li>
           <li><strong>String</strong>: Direct look at memory architecture.</li>
           <li><strong>Ownership</strong>: Automatic cleanup and constraints.</li>
           <li><strong>The Allocation Problem</strong>: Finding our first bottleneck.</li>
@@ -87,7 +88,7 @@ export const BasicCache = forwardRef<HTMLDivElement, { number: number }>((props,
     <Page number={props.number} ref={ref} className="page-right">
       <h2 className="section-title">Basic Cache</h2>
       <div className="content-block">
-        Our journey begins with a simple <span className="keyword">Key-Value</span> store. In Rust, we need to be explicit about ownership.
+        Our journey begins with a simple <span className="keyword">key-value cache</span>. In Rust, we need to be explicit about ownership.
       </div>
       <div className="content-block">
         For our first iteration, we will use <span className="keyword">String</span> for both keys and values.
@@ -144,12 +145,54 @@ export const Operations = forwardRef<HTMLDivElement, { number: number }>((props,
   );
 });
 
-export const StructsReferences = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
+export const References = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
     <Page number={props.number} ref={ref} className="page-right">
-      <h2 className="section-title">Structs & References</h2>
+      <h2 className="section-title">What is a Reference?</h2>
       <div className="content-block">
-        Rust provides three ways to define structure:
+        In Rust, a <span className="keyword">Reference</span> is a safe pointer. It allows you to "borrow" a value without taking ownership.
+      </div>
+
+      <div className="content-block">
+        <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>1. Shared Reference (&T)</h3>
+        Read-only access. You can have <b>infinitely many</b> shared references to the same data at once.
+      </div>
+
+      <div className="content-block">
+        <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>2. Mutable Reference (&mut T)</h3>
+        Read-Write access. You can have <b>exactly one</b> mutable reference, and no other references (shared or mutable) can exist at the same time.
+      </div>
+
+      <div className="code-snippet">
+        <CodeBlock code={`let x = 5;
+let r1 = &x;     // r1 is a Shared Reference
+let r2 = &x;     // Another shared reference (OK)
+
+let mut y = 10;
+let r3 = &mut y; // r3 is a Mutable Reference`} />
+      </div>
+
+      <div className="content-block" style={{ marginTop: '1rem', borderTop: '1px solid #eee', paddingTop: '1rem' }}>
+        <p style={{ fontSize: '0.9rem' }}>
+          <strong>Physical Reality:</strong> On a 64-bit system, both <code>r1</code> and <code>r3</code> are <b>8 bytes</b> in size.
+          They are just memory addresses (pointers) but with rigorous compile-time checks.
+        </p>
+      </div>
+
+      <div className="audience-question" style={{ marginTop: '1rem' }}>
+        <strong>Why?</strong>
+        <p style={{ fontSize: '0.8rem' }}>Explicit pointers prevent "Aliasing + Mutation," the root cause of most memory bugs.</p>
+      </div>
+    </Page>
+  );
+});
+
+export const StructTypes = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
+  return (
+    <Page number={props.number} ref={ref} className="page-left">
+      <h2 className="section-title">Classic, Tuple, & Unit Structs</h2>
+      <div className="content-block">
+        Rust provides three ways to define physical structure:
       </div>
       <div className="content-block">
         <h3 style={{ fontSize: '1rem', marginBottom: '0.4rem' }}>1. Classic Structs</h3>
@@ -186,11 +229,17 @@ export const MethodReceivers = forwardRef<HTMLDivElement, { number: number }>((p
       </div>
       <div className="content-block">
         <h3 style={{ marginBottom: '0.5rem' }}>&self (Immutable Borrow)</h3>
-        Used for reading data. Multiple parts of your code can read from the cache at once.
+        <p style={{ marginBottom: '0.6rem' }}>
+          This is an <b>explicit borrow</b>. Physically, it is a pointer (8 bytes) to the instance stored elsewhere.
+        </p>
+        <div style={{ backgroundColor: 'rgba(59, 130, 246, 0.1)', padding: '0.8rem', borderRadius: '4px', fontSize: '0.85rem', borderLeft: '3px solid var(--accent-color)' }}>
+          <strong>Contrast with Java:</strong> In Java, "everything is a reference" and references are passed by copy (the handle is copied).
+          In Rust, <code>&self</code> makes it explicit: the method does <b>not own</b> the data; it is merely looking at it through a temporary pointer provided by the owner.
+        </div>
       </div>
       <div className="content-block">
         <h3 style={{ marginBottom: '0.5rem' }}>&mut self (Mutable Borrow)</h3>
-        Used for writing/modifying data. Ensures <span className="keyword">exclusive access</span> , no one else can read or write while this is happening.
+        Used for writing/modifying data. Ensures <span className="keyword">exclusive access</span>, no one else can read or write while this is happening.
       </div>
       <div className="content-block" style={{ fontStyle: 'italic', borderLeft: '2px solid #ccc', paddingLeft: '1rem' }}>
         "Rust enforces safety by ensuring you never have data races: either many readers OR one writer."
