@@ -47,7 +47,7 @@ export const Intro = forwardRef<HTMLDivElement, { number: number }>((props, ref)
         Welcome to the RootConf 2026 Rust Systems Workshop. Today, we delve into the core of Rust's efficiency and safety by building an in-memory cache.
       </div>
       <div className="content-block">
-        Over the next few modules, we'll journey from a simple implementation to a highly optimized, zero-allocation cache that leverages Rust's unique memory model.
+        Over the next few modules, we'll journey from a simple implementation to a highly optimized cache that leverages Rust's unique memory model.
       </div>
     </Page>
   );
