@@ -107,7 +107,9 @@ import {
   CacheRefactorCode,
   ContentionManagement,
   ShardCleanupCode,
-  BackgroundCleanerAssignment
+  BackgroundCleanerAssignment,
+  BackgroundCleanerImpl,
+  NonCooperativeCleaner
 } from './sections/section11/Index';
 import { 
   Section12Cover,
@@ -300,33 +302,35 @@ const Book: React.FC = () => {
         <ContentionManagement number={88} />
         <ShardCleanupCode number={89} />
         <BackgroundCleanerAssignment number={90} />
+        <BackgroundCleanerImpl number={91} />
+        <NonCooperativeCleaner number={92} />
 
         {/* Stage 12 */}
-        <Section12Cover number={91} />
-        <Stage12Roadmap number={92} />
-        <TheMetricsProblem number={93} />
-        <LockBasedDesign number={94} />
-        <AtomicsIntro number={95} />
-        <MemoryHierarchy number={96} />
-        <InstructionOptimization number={97} />
-        <MemoryModelHappensBefore number={98} />
-        <MemoryOrderingRelaxed number={99} />
-        <MemoryOrderingAcqRel number={100} />
-        <MemoryOrderingSeqCst number={101} />
-        <ConcurrentStatsDesign number={102} />
-        <MESIProtocol number={103} />
-        <FalseSharingBad number={104} />
-        <OptimizedConcurrentStats number={105} />
+        <Section12Cover number={93} />
+        <Stage12Roadmap number={94} />
+        <TheMetricsProblem number={95} />
+        <LockBasedDesign number={96} />
+        <AtomicsIntro number={97} />
+        <MemoryHierarchy number={98} />
+        <InstructionOptimization number={99} />
+        <MemoryModelHappensBefore number={100} />
+        <MemoryOrderingRelaxed number={101} />
+        <MemoryOrderingAcqRel number={102} />
+        <MemoryOrderingSeqCst number={103} />
+        <ConcurrentStatsDesign number={104} />
+        <MESIProtocol number={105} />
+        <FalseSharingBad number={106} />
+        <OptimizedConcurrentStats number={107} />
 
         {/* Stage 13 */}
-        <Section13Cover number={106} />
-        <Stage13Roadmap number={107} />
-        <ShutdownIntro number={108} />
-        <NaiveApproach number={109} />
-        <OwnershipTermination number={110} />
-        <TypeStateConcept number={111} />
-        <CompilerAsGuard number={112} />
-        <Section13Summary number={113} />
+        <Section13Cover number={108} />
+        <Stage13Roadmap number={109} />
+        <ShutdownIntro number={110} />
+        <NaiveApproach number={111} />
+        <OwnershipTermination number={112} />
+        <TypeStateConcept number={113} />
+        <CompilerAsGuard number={114} />
+        <Section13Summary number={115} />
       </HTMLFlipBook>
 
       <div className="controls">

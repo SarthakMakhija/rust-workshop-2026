@@ -280,4 +280,53 @@ export const BackgroundCleanerAssignment = forwardRef<HTMLDivElement, { number: 
     </Page>
   );
 });
+export const BackgroundCleanerImpl = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
+  return (
+    <Page number={91} ref={ref} className="page-left">
+      <h2 className="section-title">The Cleaner Thread</h2>
+      <div className="content-block" style={{ fontSize: '0.8rem' }}>
+        Here is a basic implementation of the background cleaner using standard library threads:
+      </div>
+      <div className="code-snippet">
+        <CodeBlock code={`fn spawn_cleaner(shards: Arc<Vec<Shard<K, V>>>) -> JoinHandle<()> {
+    let handle = thread::spawn(move || {
+        let mut index = 0;
+        loop {
+            let shard = shards.get(index).unwrap();
+            shard.cleanup();
 
+            index = (index+1) % shards.len();
+            thread::sleep(Duration::from_secs(1));
+        }
+    });
+
+    handle
+}`} style={{ fontSize: '0.75rem' }} />
+      </div>
+    </Page>
+  );
+});
+
+export const NonCooperativeCleaner = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
+  return (
+    <Page number={92} ref={ref} className="page-right">
+      <h2 className="section-title">Non-Cooperative Execution</h2>
+      <div className="explanation-box" style={{ background: 'rgba(239, 68, 68, 0.05)', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
+        <h3 style={{ fontSize: '1rem', color: '#dc2626' }}>The Infinite Loop</h3>
+        This implementation is considered <strong>non-cooperative</strong> because it contains an infinite <code>loop</code> that never yields to shutdown requests.
+      </div>
+      <div className="content-block" style={{ marginTop: '1rem', fontSize: '0.85rem' }}>
+        <ul style={{ paddingLeft: '1.2rem', lineHeight: '1.8' }}>
+          <li><strong>Blocking Sleep</strong>: <code>thread::sleep</code> halts the thread completely. We cannot wake it early to shut down.</li>
+          <li><strong>Resource Leak</strong>: When the <code>Cache</code> drops, this thread continues running aimlessly forever, leaking memory and CPU cycles.</li>
+        </ul>
+      </div>
+      <div className="content-block" style={{ marginTop: '1.5rem', fontWeight: 'bold' }}>
+        What can be done?
+      </div>
+      <div className="content-block" style={{ fontSize: '0.85rem', marginTop: '0.5rem' }}>
+        We need a signaling mechanism (like a channel, an <code>AtomicBool</code> flag, or an Async runtime) to tell the thread to exit gracefully. We will solve this later with <strong>Type-States</strong>!
+      </div>
+    </Page>
+  );
+});

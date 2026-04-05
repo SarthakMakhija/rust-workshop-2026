@@ -15,14 +15,14 @@ export const Section13Cover = forwardRef<HTMLDivElement, { number: number }>((pr
           Encoding State into Types.
         </div>
       </div>
-      <div className="page-number">{106}</div>
+      <div className="page-number">{108}</div>
     </div>
   );
 });
 
 export const Stage13Roadmap = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={107} ref={ref} className="page-left">
+    <Page number={109} ref={ref} className="page-left">
       <h2 className="section-title">Stage 13 Roadmap</h2>
       <div className="content-block">
         <ul style={{ paddingLeft: '1.5rem', lineHeight: '2.2' }}>
@@ -39,7 +39,7 @@ export const Stage13Roadmap = forwardRef<HTMLDivElement, { number: number }>((pr
 
 export const ShutdownIntro = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={108} ref={ref} className="page-right">
+    <Page number={110} ref={ref} className="page-right">
       <h2 className="section-title">The Shutdown Problem</h2>
       <div className="content-block">
         In sophisticated systems, objects have a lifecycle. A <code>Cache</code> might need to be explicitly <strong>shut down</strong> to:
@@ -61,7 +61,7 @@ export const ShutdownIntro = forwardRef<HTMLDivElement, { number: number }>((pro
 
 export const NaiveApproach = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={109} ref={ref} className="page-left">
+    <Page number={111} ref={ref} className="page-left">
       <h2 className="section-title">The Runtime Check Tax</h2>
       <div className="content-block">
         One way to handle shutdown is using a flag and <code>&self</code>. This is the <strong>naive</strong> approach:
@@ -93,7 +93,7 @@ impl Cache {
 
 export const OwnershipTermination = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={110} ref={ref} className="page-right">
+    <Page number={112} ref={ref} className="page-right">
       <h2 className="section-title">Ownership as Termination</h2>
       <div className="content-block">
         A more "Rustacean" approach is to take <strong>ownership</strong> of the cache during shutdown:
@@ -120,7 +120,7 @@ export const OwnershipTermination = forwardRef<HTMLDivElement, { number: number 
 
 export const TypeStateConcept = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={111} ref={ref} className="page-left">
+    <Page number={113} ref={ref} className="page-left">
       <h2 className="section-title">The Type-State Pattern</h2>
       <div className="content-block">
         What if we want to handle states more formally? We can encode the <strong>State</strong> directly into the <strong>Type</strong>.
@@ -157,7 +157,7 @@ impl Cache<Active> {
 
 export const CompilerAsGuard = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={112} ref={ref} className="page-right">
+    <Page number={114} ref={ref} className="page-right">
       <h2 className="section-title">The Compiler as Guard</h2>
       <div className="content-block">
         Now, notice what happens when we try to misuse the API. We only define <code>put</code> and <code>get</code> inside the <code>impl Cache&lt;Active&gt;</code> block, and <strong><code>shutdown</code> itself takes <code>self</code></strong> to consume the active cache.
@@ -186,7 +186,7 @@ closed_cache.put("key", "value");`} />
 
 export const Section13Summary = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={113} ref={ref} className="page-left">
+    <Page number={115} ref={ref} className="page-left">
       <h2 className="section-title">Zero-Cost Safety Recap</h2>
       <div className="content-block">
         The Type-State pattern is one of Rust's most powerful architectural tools:

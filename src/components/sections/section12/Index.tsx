@@ -15,14 +15,14 @@ export const Section12Cover = forwardRef<HTMLDivElement, { number: number }>((pr
           Concurrent Stats & Atomics.
         </div>
       </div>
-      <div className="page-number">{91}</div>
+      <div className="page-number">{93}</div>
     </div>
   );
 });
 
 export const Stage12Roadmap = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={92} ref={ref} className="page-left">
+    <Page number={94} ref={ref} className="page-left">
       <h2 className="section-title">Stage 12 Roadmap</h2>
       <div className="content-block">
         <ul style={{ paddingLeft: '1.5rem', lineHeight: '2.0' }}>
@@ -43,7 +43,7 @@ export const Stage12Roadmap = forwardRef<HTMLDivElement, { number: number }>((pr
 
 export const TheMetricsProblem = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={93} ref={ref} className="page-right">
+    <Page number={95} ref={ref} className="page-right">
       <h2 className="section-title">The Metrics Problem</h2>
       <div className="content-block">
         A production cache must track its performance. We need to collect:
@@ -65,7 +65,7 @@ export const TheMetricsProblem = forwardRef<HTMLDivElement, { number: number }>(
 
 export const LockBasedDesign = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={94} ref={ref} className="page-left">
+    <Page number={96} ref={ref} className="page-left">
       <h2 className="section-title">The Naive Approach: Locks</h2>
       <div className="content-block">
         The simplest way to update stats across threads is to use a <code>Mutex</code> or <code>RwLock</code>.
@@ -93,7 +93,7 @@ impl CacheStats {
 
 export const AtomicsIntro = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={95} ref={ref} className="page-right">
+    <Page number={97} ref={ref} className="page-right">
       <h2 className="section-title">Atomics: Hardware Logic</h2>
       <div className="content-block">
         <strong>Atomics</strong> ensure that any operation on a variable is <strong>indivisible</strong> at the hardware level.
@@ -111,7 +111,7 @@ export const AtomicsIntro = forwardRef<HTMLDivElement, { number: number }>((prop
 
 export const MemoryHierarchy = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={96} ref={ref} className="page-left">
+    <Page number={98} ref={ref} className="page-left">
       <h2 className="section-title">The Memory Hierarchy</h2>
       <div className="content-block" style={{ fontSize: '0.85rem' }}>
         Data doesn't jump to registers instantly. It flows from Main RAM through a hierarchy of caches:
@@ -137,7 +137,7 @@ export const MemoryHierarchy = forwardRef<HTMLDivElement, { number: number }>((p
 
 export const InstructionOptimization = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={97} ref={ref} className="page-right">
+    <Page number={99} ref={ref} className="page-right">
       <h2 className="section-title">Optimization & Reordering</h2>
       <div className="content-block" style={{ fontSize: '0.85rem' }}>
         To maximize speed, CPUs and compilers <strong>reorder instructions</strong>. Consider this function:
@@ -167,7 +167,7 @@ export const InstructionOptimization = forwardRef<HTMLDivElement, { number: numb
 
 export const MemoryModelHappensBefore = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={98} ref={ref} className="page-left">
+    <Page number={100} ref={ref} className="page-left">
       <h2 className="section-title">Happens-Before Relationships</h2>
       <div className="content-block" style={{ fontSize: '0.85rem' }}>
         Rust's memory model abstracts away hardware complexity by defining a <strong>Happens-Before Relationship</strong>.
@@ -185,7 +185,7 @@ export const MemoryModelHappensBefore = forwardRef<HTMLDivElement, { number: num
 
 export const MemoryOrderingRelaxed = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={99} ref={ref} className="page-right">
+    <Page number={101} ref={ref} className="page-right">
       <h2 className="section-title">Relaxed & Modification Order</h2>
       <div className="content-block" style={{ fontSize: '0.85rem' }}>
         <code>Relaxed</code> ordering guarantees a <strong>Modification Order (MO)</strong>—a strict history of values for a variable.
@@ -215,7 +215,7 @@ fn thread_b() {
 
 export const MemoryOrderingAcqRel = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={100} ref={ref} className="page-left">
+    <Page number={102} ref={ref} className="page-left">
       <h2 className="section-title">The Acquire & Release Sync</h2>
       <div className="content-block" style={{ fontSize: '0.85rem' }}>
         <strong>Release</strong> ordering pairs with <strong>Acquire</strong> to form a memory barrier across hardware boundaries.
@@ -250,7 +250,7 @@ if locked.load(Acquire) == UNLOCKED { // (3) Sync Point
 
 export const MemoryOrderingSeqCst = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={101} ref={ref} className="page-right">
+    <Page number={103} ref={ref} className="page-right">
       <h2 className="section-title">Sequential Consistency</h2>
       <div className="content-block" style={{ fontSize: '0.85rem' }}>
         <code>SeqCst</code> implies a <strong>Single Total Modification Order</strong> across ALL variables in the system tagged this way.
@@ -267,7 +267,7 @@ export const MemoryOrderingSeqCst = forwardRef<HTMLDivElement, { number: number 
 
 export const ConcurrentStatsDesign = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={102} ref={ref} className="page-left">
+    <Page number={104} ref={ref} className="page-left">
       <h2 className="section-title">Implementing the Stats</h2>
       <div className="content-block">
         We'll use an array of <code>AtomicUsize</code> to store our metrics.
@@ -295,7 +295,7 @@ impl ConcurrentStatsCounter {
 
 export const MESIProtocol = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={103} ref={ref} className="page-right">
+    <Page number={105} ref={ref} className="page-right">
       <h2 className="section-title">The MESI Protocol</h2>
       <div className="content-block" style={{ fontSize: '0.85rem' }}>
         Hardware maintains cache coherence using four states for every 64-byte <strong>Cache Line</strong>:
@@ -416,7 +416,7 @@ const InvalidationStormTimeline = () => {
 
 export const FalseSharingBad = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={104} ref={ref} className="page-left">
+    <Page number={106} ref={ref} className="page-left">
       <h2 className="section-title">The Invalidation Storm</h2>
       <div className="content-block" style={{ fontSize: '0.8rem' }}>
         Cores own data in <b>64-byte chunks</b> (called a <b>cache-line</b>). While 64 bytes is the most common size, it is not universal. Because our counters share a single line, updating one causes hardware collisions for others.
@@ -433,7 +433,7 @@ export const FalseSharingBad = forwardRef<HTMLDivElement, { number: number }>((p
 
 export const OptimizedConcurrentStats = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={105} ref={ref} className="page-right">
+    <Page number={107} ref={ref} className="page-right">
       <h2 className="section-title">The Fix: Cache Padding</h2>
       <div className="content-block" style={{ fontSize: '0.8rem' }}>
         We isolate each counter onto its own cache line and use <b>Acquire/Release</b> to synchronize metrics across hardware boundaries.
