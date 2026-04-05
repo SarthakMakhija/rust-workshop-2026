@@ -171,6 +171,12 @@ import {
 const Book: React.FC = () => {
   const bookRef = useRef<any>(null);
   const [currentPage, setCurrentPage] = useState(0);
+  const [isReady, setIsReady] = useState(false);
+
+  const onInit = useCallback(() => {
+    // Small delay to ensure layout has settled
+    setTimeout(() => setIsReady(true), 150);
+  }, []);
 
   const onPage = useCallback((e: any) => {
     setCurrentPage(e.data);
@@ -200,7 +206,7 @@ const Book: React.FC = () => {
   }, [nextPrevPage]);
 
   return (
-    <div className="book-container">
+    <div className={`book-container ${isReady ? 'ready' : 'loading'}`}>
       {/* @ts-ignore */}
       <HTMLFlipBook
         width={800}
@@ -214,6 +220,7 @@ const Book: React.FC = () => {
         showCover={true}
         mobileScrollSupport={true}
         onFlip={onPage}
+        onInit={onInit}
         className="flip-book"
         ref={bookRef}
       >
