@@ -132,17 +132,11 @@ code, pre {
   background-color: var(--accent-color);
 }
 
-
 .page-number {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  display: none;
 }
+
+
 
 /* Content Layout (Compressed) */
 .section-title {
