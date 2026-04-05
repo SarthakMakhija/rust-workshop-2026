@@ -97,7 +97,23 @@ import {
   ShardedVerification
 } from './sections/section10/Index';
 import { Section11Cover } from './sections/section11/Index';
-import { Section12Cover } from './sections/section12/Index';
+import { 
+  Section12Cover,
+  Stage12Roadmap,
+  TheMetricsProblem,
+  LockBasedDesign,
+  AtomicsIntro,
+  MemoryHierarchy,
+  InstructionOptimization,
+  MemoryModelHappensBefore,
+  MemoryOrderingRelaxed,
+  MemoryOrderingAcqRel,
+  MemoryOrderingSeqCst,
+  MESIProtocol,
+  ConcurrentStatsDesign,
+  FalseSharingBad,
+  OptimizedConcurrentStats
+} from './sections/section12/Index';
 import {
   Section13Cover,
   Stage13Roadmap,
@@ -262,17 +278,32 @@ const Book: React.FC = () => {
 
         {/* Placeholders for 11, 12 */}
         <Section11Cover number={80} />
+        {/* Stage 12 */}
         <Section12Cover number={81} />
+        <Stage12Roadmap number={82} />
+        <TheMetricsProblem number={83} />
+        <LockBasedDesign number={84} />
+        <AtomicsIntro number={85} />
+        <MemoryHierarchy number={86} />
+        <InstructionOptimization number={87} />
+        <MemoryModelHappensBefore number={88} />
+        <MemoryOrderingRelaxed number={89} />
+        <MemoryOrderingAcqRel number={90} />
+        <MemoryOrderingSeqCst number={91} />
+        <ConcurrentStatsDesign number={92} />
+        <MESIProtocol number={93} />
+        <FalseSharingBad number={94} />
+        <OptimizedConcurrentStats number={95} />
 
         {/* Stage 13 */}
-        <Section13Cover number={82} />
-        <Stage13Roadmap number={83} />
-        <ShutdownIntro number={84} />
-        <NaiveApproach number={85} />
-        <OwnershipTermination number={86} />
-        <TypeStateConcept number={87} />
-        <CompilerAsGuard number={88} />
-        <Section13Summary number={89} />
+        <Section13Cover number={96} />
+        <Stage13Roadmap number={97} />
+        <ShutdownIntro number={98} />
+        <NaiveApproach number={99} />
+        <OwnershipTermination number={100} />
+        <TypeStateConcept number={101} />
+        <CompilerAsGuard number={102} />
+        <Section13Summary number={103} />
       </HTMLFlipBook>
 
       <div className="controls">
