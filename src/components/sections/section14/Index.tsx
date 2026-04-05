@@ -162,12 +162,12 @@ fn test_cache_end_to_end() {
         .default_ttl(Duration::from_millis(50))
         .build();
 
-    cache.put(String::from("rootconf"), String::from("workshop"));
-    assert!(cache.get(&String::from("rootconf")).is_some());
+    cache.put(String::from("rustconf"), String::from("workshop"));
+    assert!(cache.get(&String::from("rustconf")).is_some());
 
     // ⏳ Trigger expiration
     thread::sleep(Duration::from_millis(100));
-    assert!(cache.get(&String::from("rootconf")).is_none());
+    assert!(cache.get(&String::from("rustconf")).is_none());
 }`} style={{ fontSize: '0.70rem' }} />
       </div>
     </Page>
