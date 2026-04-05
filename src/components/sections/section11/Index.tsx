@@ -15,14 +15,14 @@ export const Section11Cover = forwardRef<HTMLDivElement, { number: number }>((pr
           Time-To-Live & Lock Contention.
         </div>
       </div>
-      <div className="page-number">{80}</div>
+      <div className="page-number">{props.number}</div>
     </div>
   );
 });
 
 export const Stage11Roadmap = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={81} ref={ref} className="page-left">
+    <Page number={props.number} ref={ref} className="page-left">
       <h2 className="section-title">Stage 11 Roadmap</h2>
       <div className="content-block">
         <ul style={{ paddingLeft: '1.5rem', lineHeight: '2.0' }}>
@@ -39,7 +39,7 @@ export const Stage11Roadmap = forwardRef<HTMLDivElement, { number: number }>((pr
 
 export const TheStaleDataProblem = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={82} ref={ref} className="page-right">
+    <Page number={props.number} ref={ref} className="page-right">
       <h2 className="section-title">The Need for Expiry</h2>
       <div className="content-block">
         Until now, our entries stay in memory until the application terminates. This poses two major risks:
@@ -59,7 +59,7 @@ export const TheStaleDataProblem = forwardRef<HTMLDivElement, { number: number }
 
 export const TheShardAbstraction = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={83} ref={ref} className="page-left">
+    <Page number={props.number} ref={ref} className="page-left">
       <h2 className="section-title">The Shard & Entry</h2>
       <div className="content-block">
         Each entry now tracks its own expiration. The <strong>Shard</strong> manages both the data and its time-based lifecycle.
@@ -90,7 +90,7 @@ impl<K, V> Shard<K, V> {
 
 export const ShardPutCode = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={84} ref={ref} className="page-right">
+    <Page number={props.number} ref={ref} className="page-right">
       <h2 className="section-title">Shard::put - Scoping</h2>
       <div className="content-block" style={{ fontSize: '0.8rem' }}>
         Implementing <code>put</code> inside <code>Shard</code>: we must update both the KV store and the TTL list. We use <strong>restricted scopes</strong> to minimize lock contention.
@@ -120,7 +120,7 @@ export const ShardPutCode = forwardRef<HTMLDivElement, { number: number }>((prop
 
 export const ShardGetLazy = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={85} ref={ref} className="page-left">
+    <Page number={props.number} ref={ref} className="page-left">
       <h2 className="section-title">Shard::get - Lazy Expiry</h2>
       <div className="content-block">
         Implementing <code>get</code> inside <code>Shard</code>: correctness matters more than performance. We check for expiry <strong>immediately</strong> during lookup.
@@ -150,7 +150,7 @@ where Q: ?Sized + Hash + Eq, K: Borrow<Q>
 
 export const ZeroCopyRefTTL = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={86} ref={ref} className="page-right">
+    <Page number={props.number} ref={ref} className="page-right">
       <h2 className="section-title">The Zero-Copy Reference</h2>
       <div className="content-block">
         Our <code>Ref</code> wrapper must now account for the <code>Entry&lt;V&gt;</code> indirection while maintaining safety.
@@ -178,7 +178,7 @@ impl<'a, K, V> Deref for Ref<'a, K, V> {
 
 export const CacheRefactorCode = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={87} ref={ref} className="page-left">
+    <Page number={props.number} ref={ref} className="page-left">
       <h2 className="section-title">Cache-Level Shuffling</h2>
       <div className="content-block">
         The top-level <code>Cache</code> remains simple, delegating its expiry logic to the shards.
@@ -202,7 +202,7 @@ export const CacheRefactorCode = forwardRef<HTMLDivElement, { number: number }>(
 
 export const ContentionManagement = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={88} ref={ref} className="page-right">
+    <Page number={props.number} ref={ref} className="page-right">
       <h2 className="section-title">Lock Contention Analysis</h2>
       <div className="content-block">
         Why go through the effort of separate locks?
@@ -220,7 +220,7 @@ export const ContentionManagement = forwardRef<HTMLDivElement, { number: number 
 
 export const ShardCleanupCode = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={89} ref={ref} className="page-left">
+    <Page number={props.number} ref={ref} className="page-left">
       <h2 className="section-title">The Cleanup Phase</h2>
       <div className="content-block" style={{ fontSize: '0.8rem' }}>
         We must clean up expired keys in <strong>two distinct phases</strong> to minimize lock contention and prevent deadlocks. 
@@ -257,7 +257,7 @@ export const ShardCleanupCode = forwardRef<HTMLDivElement, { number: number }>((
 
 export const BackgroundCleanerAssignment = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={90} ref={ref} className="page-right">
+    <Page number={props.number} ref={ref} className="page-right">
       <h2 className="section-title">Assignment: Background Worker</h2>
       <div className="content-block">
         <strong>Task:</strong> Implement the background cleaner thread.
@@ -282,7 +282,7 @@ export const BackgroundCleanerAssignment = forwardRef<HTMLDivElement, { number: 
 });
 export const BackgroundCleanerImpl = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={91} ref={ref} className="page-left">
+    <Page number={props.number} ref={ref} className="page-left">
       <h2 className="section-title">The Cleaner Thread</h2>
       <div className="content-block" style={{ fontSize: '0.8rem' }}>
         Here is a basic implementation of the background cleaner using standard library threads:
@@ -309,7 +309,7 @@ export const BackgroundCleanerImpl = forwardRef<HTMLDivElement, { number: number
 
 export const NonCooperativeCleaner = forwardRef<HTMLDivElement, { number: number }>((props, ref) => {
   return (
-    <Page number={92} ref={ref} className="page-right">
+    <Page number={props.number} ref={ref} className="page-right">
       <h2 className="section-title">Non-Cooperative Execution</h2>
       <div className="explanation-box" style={{ background: 'rgba(239, 68, 68, 0.05)', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
         <h3 style={{ fontSize: '1rem', color: '#dc2626' }}>The Infinite Loop</h3>

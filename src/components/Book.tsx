@@ -35,7 +35,19 @@ import {
   GenericCacheImpl,
   GenericTests
 } from './sections/section3/Index';
-import { Section4Cover } from './sections/section4/Index';
+import { 
+  Section4Cover,
+  Stage4Roadmap,
+  IntroduceGetMut,
+  MutableScopeProblem,
+  AliasMutationError,
+  TheUpdateMethod,
+  UpdateImplCode,
+  UpdateTests,
+  MultipleUpdatesScope,
+  ClosureTraits,
+  InteriorMutabilityPath
+} from './sections/section4/Index';
 import { Section5Cover } from './sections/section5/Index';
 import {
   Section6Cover,
@@ -225,112 +237,122 @@ const Book: React.FC = () => {
         <GenericCacheImpl number={27} />
         <GenericTests number={28} />
 
-        {/* Stage 4 Placeholder */}
+        {/* Stage 4 */}
         <Section4Cover number={29} />
+        <Stage4Roadmap number={30} />
+        <IntroduceGetMut number={31} />
+        <MutableScopeProblem number={32} />
+        <AliasMutationError number={33} />
+        <TheUpdateMethod number={34} />
+        <UpdateImplCode number={35} />
+        <UpdateTests number={36} />
+        <MultipleUpdatesScope number={37} />
+        <ClosureTraits number={38} />
+        <InteriorMutabilityPath number={39} />
 
         {/* Stage 5 Placeholder */}
-        <Section5Cover number={30} />
+        <Section5Cover number={40} />
 
         {/* Stage 6 */}
-        <Section6Cover number={31} />
-        <Section6Intro number={32} />
-        <ConcurrencyIntro number={33} />
-        <CompilationError number={34} />
-        <ThreadSafeWrapper number={35} />
-        <RAIIGuards number={36} />
-        <InnerLockingDrop number={37} />
-        <TheDerefTrait number={38} />
-        <TheUnwrapMystery number={39} />
-        <TheBrokenGet number={40} />
-        <OwnershipShift number={41} />
-        <SafeCacheImpl number={42} />
-        <ThreadSafeTests number={43} />
+        <Section6Cover number={41} />
+        <Section6Intro number={42} />
+        <ConcurrencyIntro number={43} />
+        <CompilationError number={44} />
+        <ThreadSafeWrapper number={45} />
+        <RAIIGuards number={46} />
+        <InnerLockingDrop number={47} />
+        <TheDerefTrait number={48} />
+        <TheUnwrapMystery number={49} />
+        <TheBrokenGet number={50} />
+        <OwnershipShift number={51} />
+        <SafeCacheImpl number={52} />
+        <ThreadSafeTests number={53} />
 
         {/* Stage 7 */}
-        <Section7Cover number={44} />
-        <Section7Intro number={45} />
-        <TheCloningTax number={46} />
-        <IntroducingArc number={47} />
-        <ArcMechanics number={48} />
-        <ArcInsideCache number={49} />
-        <ArcDeref number={50} />
-        <FinalArcImplementation number={51} />
-        <ArcTests number={52} />
+        <Section7Cover number={54} />
+        <Section7Intro number={55} />
+        <TheCloningTax number={56} />
+        <IntroducingArc number={57} />
+        <ArcMechanics number={58} />
+        <ArcInsideCache number={59} />
+        <ArcDeref number={60} />
+        <FinalArcImplementation number={61} />
+        <ArcTests number={62} />
 
         {/* Stage 8 */}
-        <Section8Cover number={53} />
-        <Stage8Roadmap number={54} />
-        <Section8Intro number={55} />
-        <CustomRefPattern number={56} />
-        <LifetimeAnchor number={57} />
-        <ThePointerTrick number={58} />
-        <UnsafeDeref number={59} />
-        <LockTradeoff number={60} />
-        <ZeroCopyTests number={61} />
-        <Section8Summary number={62} />
+        <Section8Cover number={63} />
+        <Stage8Roadmap number={64} />
+        <Section8Intro number={65} />
+        <CustomRefPattern number={66} />
+        <LifetimeAnchor number={67} />
+        <ThePointerTrick number={68} />
+        <UnsafeDeref number={69} />
+        <LockTradeoff number={70} />
+        <ZeroCopyTests number={71} />
+        <Section8Summary number={72} />
 
         {/* Stage 9 */}
-        <Section9Cover number={63} />
-        <Stage9Roadmap number={64} />
-        <BeyondScope number={65} />
-        <TheOwnershipWall number={66} />
-        <FoundationOfConcurrency number={67} />
-        <SharedCacheArc number={68} />
-        <SendAndSync number={69} />
-        <FinalVerification number={70} />
+        <Section9Cover number={73} />
+        <Stage9Roadmap number={74} />
+        <BeyondScope number={75} />
+        <TheOwnershipWall number={76} />
+        <FoundationOfConcurrency number={77} />
+        <SharedCacheArc number={78} />
+        <SendAndSync number={79} />
+        <FinalVerification number={80} />
 
         {/* Stage 10 */}
-        <Section10Cover number={71} />
-        <Stage10Roadmap number={72} />
-        <LockContentionIntro number={73} />
-        <ShardingDesign number={74} />
-        <TheShardedStruct number={75} />
-        <HashingAndIndexing number={76} />
-        <ShardedImplementation number={77} />
-        <ShardedAccess number={78} />
-        <ShardedVerification number={79} />
+        <Section10Cover number={81} />
+        <Stage10Roadmap number={82} />
+        <LockContentionIntro number={83} />
+        <ShardingDesign number={84} />
+        <TheShardedStruct number={85} />
+        <HashingAndIndexing number={86} />
+        <ShardedImplementation number={87} />
+        <ShardedAccess number={88} />
+        <ShardedVerification number={89} />
 
         {/* Stage 11 */}
-        <Section11Cover number={80} />
-        <Stage11Roadmap number={81} />
-        <TheStaleDataProblem number={82} />
-        <TheShardAbstraction number={83} />
-        <ShardPutCode number={84} />
-        <ShardGetLazy number={85} />
-        <ZeroCopyRefTTL number={86} />
-        <CacheRefactorCode number={87} />
-        <ContentionManagement number={88} />
-        <ShardCleanupCode number={89} />
-        <BackgroundCleanerAssignment number={90} />
-        <BackgroundCleanerImpl number={91} />
-        <NonCooperativeCleaner number={92} />
+        <Section11Cover number={90} />
+        <Stage11Roadmap number={91} />
+        <TheStaleDataProblem number={92} />
+        <TheShardAbstraction number={93} />
+        <ShardPutCode number={94} />
+        <ShardGetLazy number={95} />
+        <ZeroCopyRefTTL number={96} />
+        <CacheRefactorCode number={97} />
+        <ContentionManagement number={98} />
+        <ShardCleanupCode number={99} />
+        <BackgroundCleanerAssignment number={100} />
+        <BackgroundCleanerImpl number={101} />
+        <NonCooperativeCleaner number={102} />
 
         {/* Stage 12 */}
-        <Section12Cover number={93} />
-        <Stage12Roadmap number={94} />
-        <TheMetricsProblem number={95} />
-        <LockBasedDesign number={96} />
-        <AtomicsIntro number={97} />
-        <MemoryHierarchy number={98} />
-        <InstructionOptimization number={99} />
-        <MemoryModelHappensBefore number={100} />
-        <MemoryOrderingRelaxed number={101} />
-        <MemoryOrderingAcqRel number={102} />
-        <MemoryOrderingSeqCst number={103} />
-        <ConcurrentStatsDesign number={104} />
-        <MESIProtocol number={105} />
-        <FalseSharingBad number={106} />
-        <OptimizedConcurrentStats number={107} />
+        <Section12Cover number={103} />
+        <Stage12Roadmap number={104} />
+        <TheMetricsProblem number={105} />
+        <LockBasedDesign number={106} />
+        <AtomicsIntro number={107} />
+        <MemoryHierarchy number={108} />
+        <InstructionOptimization number={109} />
+        <MemoryModelHappensBefore number={110} />
+        <MemoryOrderingRelaxed number={111} />
+        <MemoryOrderingAcqRel number={112} />
+        <MemoryOrderingSeqCst number={113} />
+        <ConcurrentStatsDesign number={114} />
+        <MESIProtocol number={115} />
+        <FalseSharingBad number={116} />
+        <OptimizedConcurrentStats number={117} />
 
         {/* Stage 13 */}
-        <Section13Cover number={108} />
-        <Stage13Roadmap number={109} />
-        <ShutdownIntro number={110} />
-        <NaiveApproach number={111} />
-        <OwnershipTermination number={112} />
-        <TypeStateConcept number={113} />
-        <CompilerAsGuard number={114} />
-        <Section13Summary number={115} />
+        <Section13Cover number={118} />
+        <Stage13Roadmap number={119} />
+        <ShutdownIntro number={120} />
+        <NaiveApproach number={121} />
+        <OwnershipTermination number={122} />
+        <TypeStateConcept number={123} />
+        <CompilerAsGuard number={124} />
+        <Section13Summary number={125} />
       </HTMLFlipBook>
 
       <div className="controls">
