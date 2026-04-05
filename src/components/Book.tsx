@@ -96,7 +96,19 @@ import {
   ShardedAccess,
   ShardedVerification
 } from './sections/section10/Index';
-import { Section11Cover } from './sections/section11/Index';
+import {
+  Section11Cover,
+  Stage11Roadmap,
+  TheStaleDataProblem,
+  TheShardAbstraction,
+  ShardPutCode,
+  ShardGetLazy,
+  ZeroCopyRefTTL,
+  CacheRefactorCode,
+  ContentionManagement,
+  ShardCleanupCode,
+  BackgroundCleanerAssignment
+} from './sections/section11/Index';
 import { 
   Section12Cover,
   Stage12Roadmap,
@@ -276,34 +288,45 @@ const Book: React.FC = () => {
         <ShardedAccess number={78} />
         <ShardedVerification number={79} />
 
-        {/* Placeholders for 11, 12 */}
+        {/* Stage 11 */}
         <Section11Cover number={80} />
+        <Stage11Roadmap number={81} />
+        <TheStaleDataProblem number={82} />
+        <TheShardAbstraction number={83} />
+        <ShardPutCode number={84} />
+        <ShardGetLazy number={85} />
+        <ZeroCopyRefTTL number={86} />
+        <CacheRefactorCode number={87} />
+        <ContentionManagement number={88} />
+        <ShardCleanupCode number={89} />
+        <BackgroundCleanerAssignment number={90} />
+
         {/* Stage 12 */}
-        <Section12Cover number={81} />
-        <Stage12Roadmap number={82} />
-        <TheMetricsProblem number={83} />
-        <LockBasedDesign number={84} />
-        <AtomicsIntro number={85} />
-        <MemoryHierarchy number={86} />
-        <InstructionOptimization number={87} />
-        <MemoryModelHappensBefore number={88} />
-        <MemoryOrderingRelaxed number={89} />
-        <MemoryOrderingAcqRel number={90} />
-        <MemoryOrderingSeqCst number={91} />
-        <ConcurrentStatsDesign number={92} />
-        <MESIProtocol number={93} />
-        <FalseSharingBad number={94} />
-        <OptimizedConcurrentStats number={95} />
+        <Section12Cover number={91} />
+        <Stage12Roadmap number={92} />
+        <TheMetricsProblem number={93} />
+        <LockBasedDesign number={94} />
+        <AtomicsIntro number={95} />
+        <MemoryHierarchy number={96} />
+        <InstructionOptimization number={97} />
+        <MemoryModelHappensBefore number={98} />
+        <MemoryOrderingRelaxed number={99} />
+        <MemoryOrderingAcqRel number={100} />
+        <MemoryOrderingSeqCst number={101} />
+        <ConcurrentStatsDesign number={102} />
+        <MESIProtocol number={103} />
+        <FalseSharingBad number={104} />
+        <OptimizedConcurrentStats number={105} />
 
         {/* Stage 13 */}
-        <Section13Cover number={96} />
-        <Stage13Roadmap number={97} />
-        <ShutdownIntro number={98} />
-        <NaiveApproach number={99} />
-        <OwnershipTermination number={100} />
-        <TypeStateConcept number={101} />
-        <CompilerAsGuard number={102} />
-        <Section13Summary number={103} />
+        <Section13Cover number={106} />
+        <Stage13Roadmap number={107} />
+        <ShutdownIntro number={108} />
+        <NaiveApproach number={109} />
+        <OwnershipTermination number={110} />
+        <TypeStateConcept number={111} />
+        <CompilerAsGuard number={112} />
+        <Section13Summary number={113} />
       </HTMLFlipBook>
 
       <div className="controls">
