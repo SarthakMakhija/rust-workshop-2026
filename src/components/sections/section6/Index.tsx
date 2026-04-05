@@ -163,7 +163,13 @@ impl<T: ?Sized> Drop for RwLockWriteGuard<'_, T> {
 }`} style={{ fontSize: '0.75rem' }} />
       </div>
       <div className="content-block" style={{ fontSize: '0.9rem' }}>
-        The Guard holds a <b>reference</b> to the original lock. When the Guard is <b>dropped</b>, its <code>drop()</code> method is called, which finally unlocks the <code>RwLock</code> for other threads.
+        The Guard holds an <b>explicit borrow</b> (<code>&'a RwLock{"<"}T{">"}</code>) of the original lock. 
+        Because it is a borrow, Rust's borrow checker ensures that the <b>Guard can NEVER outlive the Lock</b>.
+      </div>
+      <div className="content-block" style={{ fontSize: '0.9rem', backgroundColor: 'rgba(239, 68, 68, 0.05)', padding: '0.8rem', borderRadius: '4px', borderLeft: '3px solid var(--error-color)' }}>
+        <h3 style={{ fontSize: '1rem', marginBottom: '0.4rem' }}>What if the Guard outlived the Lock?</h3>
+        If this were possible, the Guard's <code>drop()</code> method would attempt to unlock a <b>dropped/garbage</b> memory location. 
+        This would be a classic "Use-After-Free" crash. Rust prevents this entirely at <b>compile-time</b>.
       </div>
     </Page>
   );
@@ -174,17 +180,30 @@ export const TheDerefTrait = forwardRef<HTMLDivElement, { number: number }>((pro
     <Page number={props.number} ref={ref} className="page-left">
       <h2 className="section-title">The Deref Magic</h2>
       <div className="content-block">
-        Wait! <code>guard</code> is an <code>RwLockWriteGuard</code>, not a <code>HashMap</code>. How did we call <code>.insert()</code> on it?
+        Wait! <code>guard</code> is an <code>RwLockReadGuard</code>, not a <code>HashMap</code>. How did we call <code>.get()</code> on it?
       </div>
       <div className="content-block">
         The secret is the <span className="keyword">Deref</span> trait. It allows smart pointers (and Guards) to behave like the data they wrap.
       </div>
       <div className="code-snippet">
-        <CodeBlock code={`// Internally, it's essentially:
-(*guard).insert(key, value);`} style={{ fontSize: '0.8rem' }} />
+        <CodeBlock code={`pub struct RwLockReadGuard<'a, T: ?Sized + 'a> {
+    data: NonNull<T>,
+}
+
+impl<T: ?Sized> Deref for RwLockReadGuard<'_, T> {
+    type Target = T;
+
+    fn deref(&self) -> &T {
+        unsafe { self.data.as_ref() }
+    }
+}`} style={{ fontSize: '0.75rem' }} />
+      </div>
+      <div className="content-block" style={{ fontSize: '0.9rem' }}>
+        When we use the <code>guard</code>, Rust sees that it doesn't have the method we're calling. It then checks if the guard implements <b>Deref</b>. 
+        If it does, it implicitly calls <code>.deref()</code>, which returns a <b>reference to the underlying data</b>.
       </div>
       <div className="content-block" style={{ fontStyle: 'italic', borderLeft: '2px solid #ccc', paddingLeft: '1rem', fontSize: '0.9rem' }}>
-        Rust automatically "dereferences" the guard to the underlying <code>HashMap</code>, giving us a seamless developer experience.
+        This "Deref Coercion" is what makes Rust's smart pointers feel so ergonomic while maintaining absolute safety.
       </div>
     </Page>
   );

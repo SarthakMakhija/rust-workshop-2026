@@ -159,13 +159,25 @@ let ptr = value as *const V;
 Some(Ref { guard, value: ptr })`} />
       </div>
       <div className="content-block" style={{ fontSize: '0.9rem' }}>
+        <h3 style={{ fontSize: '1rem', color: 'var(--accent-color)' }}>What is the '?' operator?</h3>
+        This is the **Question Mark Operator**. It performs an **Early Return** if the lookup fails.
+        <ul style={{ marginTop: '0.5rem', paddingLeft: '1rem' }}>
+          <li>If <code>guard.get()</code> returns <code>Some(V)</code>, the value is "unwrapped" into the <code>value</code> variable.</li>
+          <li>If it returns <code>None</code>, the entire function <b>returns None immediately</b>.</li>
+          <li>It replaces bulky <code>match</code> or <code>if let</code> blocks, keeping the logic flat and clean.</li>
+        </ul>
+      </div>
+      <div className="content-block" style={{ fontSize: '0.9rem' }}>
         <h3 style={{ fontSize: '1rem', color: 'var(--accent-color)' }}>What is *const V?</h3>
         This is a **Constant Raw Pointer**. It is a memory address that we manually manage. 
         <ul style={{ marginTop: '0.5rem', paddingLeft: '1rem' }}>
-          <li>Unlike a standard reference <code>&V</code>, it has <strong>no lifetime tracking</strong> by the compiler.</li>
-          <li>It represents a raw memory address that we promise will remain stable.</li>
-          <li>We use it here to avoid a self-referential struct error.</li>
+          <li><strong>Type Erasure</strong>: Unlike <code>&V</code>, it has <strong>no lifetime tracking</strong>. It is "just a number" representing a memory address.</li>
+          <li><strong>Why use it?</strong> Rust's borrow checker doesn't allow a struct to contain both a <code>Guard</code> and a <code>&Reference</code> to data inside that same guard (a Self-Referential Struct).</li>
+          <li><strong>The Trick</strong>: By converting the reference to a raw pointer, we "hide" the dependency from the compiler, allowing us to bundle them together.</li>
         </ul>
+      </div>
+      <div className="content-block" style={{ fontStyle: 'italic', fontSize: '0.85rem', borderLeft: '2px solid #ccc', paddingLeft: '1rem' }}>
+        "We use raw pointers to bypass the compiler's strictness, but we use the <b>struct's lifetime 'a</b> to ensure the pointer remains valid for the caller."
       </div>
     </Page>
   );
