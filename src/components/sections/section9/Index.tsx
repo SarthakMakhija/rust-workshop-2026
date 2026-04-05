@@ -85,8 +85,8 @@ export const TheOwnershipWall = forwardRef<HTMLDivElement, { number: number }>((
       <div className="content-block">
         <div className="error-text" style={{ color: '#ff8e8e', fontStyle: 'italic', fontSize: '0.9rem' }}>
           // COMPILATION ERROR:
-          // value used here after move
-          // 'cache' moved into closure in previous spawn
+        // value used here after move
+        // 'cache' moved into closure in previous spawn
         </div>
       </div>
       <div className="content-block" style={{ fontSize: '0.9rem' }}>
@@ -114,7 +114,7 @@ export const FoundationOfConcurrency = forwardRef<HTMLDivElement, { number: numb
         If multiple threads need to own the <strong>same</strong> cache, we have a logical paradox. How can one thing have multiple owners?
       </div>
       <div className="content-block" style={{ marginTop: '1.5rem' }}>
-        This is where <code>Arc</code> returns—not for the values <i>inside</i> the cache, but for the <strong>Cache itself</strong>.
+        This is where <code>Arc</code> returns,not for the values <i>inside</i> the cache, but for the <strong>Cache itself</strong>.
       </div>
     </Page>
   );
@@ -137,7 +137,7 @@ export const SharedCacheArc = forwardRef<HTMLDivElement, { number: number }>((pr
 }`} />
       </div>
       <div className="content-block" style={{ fontSize: '0.9rem' }}>
-        Now, every time a thread needs access to the cache, we simply <code>Arc::clone(&cache)</code>. 
+        Now, every time a thread needs access to the cache, we simply <code>Arc::clone(&cache)</code>.
         <br /><br />
         We aren't cloning the <strong>data</strong>; we are cloning the <strong>handle</strong> to the cache. The internal <code>RwLock</code> still handles the actual concurrency.
       </div>

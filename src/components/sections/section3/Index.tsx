@@ -52,7 +52,7 @@ export const IntroducingGenerics = forwardRef<HTMLDivElement, { number: number }
 }`} />
       </div>
       <div className="content-block">
-        In Rust, generic parameters are replaced with concrete types (like <code>i32</code> or <code>String</code>) at compile-time—this process is called **Monomorphization**. Zero cost, again!
+        In Rust, generic parameters are replaced with concrete types (like <code>i32</code> or <code>String</code>) at compile-time,this process is called **Monomorphization**. Zero cost, again!
       </div>
     </Page>
   );
@@ -172,8 +172,8 @@ where K: Hash + Eq
       <div className="explanation-box">
         <strong>What is ?Sized?</strong>
         <p style={{ marginTop: '0.5rem' }}>
-          By default, generic types must have a known size at compile time. 
-          However, types like <code>str</code> are unsized. <code>?Sized</code> tells Rust: 
+          By default, generic types must have a known size at compile time.
+          However, types like <code>str</code> are unsized. <code>?Sized</code> tells Rust:
           "Q may or may not have a known size", allowing us to use <code>&str</code>.
         </p>
       </div>

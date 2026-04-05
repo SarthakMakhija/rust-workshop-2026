@@ -92,7 +92,7 @@ export const RefCellMethods = forwardRef<HTMLDivElement, { number: number }>((pr
       <div className="explanation-box" style={{ marginTop: '0.8rem', background: '#eef2ff' }}>
         <h3 style={{ fontSize: '0.9rem', color: '#4f46e5' }}>The Anonymous Lifetime ('_)</h3>
         <div style={{ fontSize: '0.75rem', marginTop: '0.3rem' }}>
-          We use exactly <code>{`'_`}</code> returning <code>{`std::cell::Ref<'_ , V>`}</code>. This tells the compiler the returned guard is tied exclusively to the scope of <code>&self</code>. Don't worry—we'll cover lifetimes extensively in a later stage!
+          We use exactly <code>{`'_`}</code> returning <code>{`std::cell::Ref<'_ , V>`}</code>. This tells the compiler the returned guard is tied exclusively to the scope of <code>&self</code>. Don't worry,we'll cover lifetimes extensively in a later stage!
         </div>
       </div>
     </Page>
@@ -104,7 +104,7 @@ export const CacheIntegration = forwardRef<HTMLDivElement, { number: number }>((
     <Page number={props.number} ref={ref} className="page-right">
       <h2 className="section-title">Cache Integration</h2>
       <div className="content-block" style={{ fontSize: '0.85rem' }}>
-        We plug the <code>Entry</code> struct directly into the cache. 
+        We plug the <code>Entry</code> struct directly into the cache.
       </div>
       <div className="code-snippet">
         <CodeBlock code={`impl<K, V> Cache<K, V> where K: Eq + Hash {
@@ -175,7 +175,7 @@ already borrowed: BorrowMutError`} className="error-text" style={{ fontSize: '0.
       <div className="explanation-box" style={{ marginTop: '1rem', background: '#eef2ff' }}>
         <h3 style={{ fontSize: '0.9rem', color: '#4f46e5' }}>Compile-time vs Runtime</h3>
         <div style={{ fontSize: '0.8rem', marginTop: '0.5rem' }}>
-          <code>RefCell</code> uses an internal integer to track active borrows. 
+          <code>RefCell</code> uses an internal integer to track active borrows.
           When <code>entry1.get_mut()</code> runs, it flips the flag to <b>-1 (Writer Active)</b>.
         </div>
         <div style={{ fontSize: '0.8rem', marginTop: '0.5rem' }}>

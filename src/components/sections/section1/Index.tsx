@@ -182,7 +182,7 @@ export const MethodReceivers = forwardRef<HTMLDivElement, { number: number }>((p
       </div>
       <div className="content-block">
         <h3 style={{ marginBottom: '0.5rem' }}>&mut self (Mutable Borrow)</h3>
-        Used for writing/modifying data. Ensures <span className="keyword">exclusive access</span> — no one else can read or write while this is happening.
+        Used for writing/modifying data. Ensures <span className="keyword">exclusive access</span> , no one else can read or write while this is happening.
       </div>
       <div className="content-block" style={{ fontStyle: 'italic', borderLeft: '2px solid #ccc', paddingLeft: '1rem' }}>
         "Rust enforces safety by ensuring you never have data races: either many readers OR one writer."
@@ -198,7 +198,7 @@ export const StringLayout = forwardRef<HTMLDivElement, { number: number }>((prop
       <div className="content-block">
         Before we optimize, we must understand how a <span className="keyword">String</span> actually lives in memory. It is a "Handle" pointing to a "Buffer".
       </div>
-      
+
       <div className="memory-viz">
         <div className="viz-row">
           <div className="viz-label">Stack</div>
@@ -251,7 +251,7 @@ export const OwnershipDetails = forwardRef<HTMLDivElement, { number: number }>((
       </div>
       <div className="content-block">
         <h3 style={{ marginBottom: '0.5rem' }}>2. Borrowing Constraints</h3>
-        A method using <span className="keyword">&self</span> cannot return an owned <span className="keyword">String</span> from within itself unless the method explicitly clones it. 
+        A method using <span className="keyword">&self</span> cannot return an owned <span className="keyword">String</span> from within itself unless the method explicitly clones it.
       </div>
       <div className="content-block">
         <h3 style={{ marginBottom: '0.5rem' }}>3. Value Return</h3>
@@ -296,7 +296,7 @@ export const StringTypes = forwardRef<HTMLDivElement, { number: number }>((props
       <div className="content-block" style={{ fontSize: '0.9rem' }}>
         To solve the allocation problem, we must understand the three faces of text in Rust:
       </div>
-      
+
       <div className="string-comparer">
         <div className="type-info">
           <div className="type-header">String</div>
@@ -309,7 +309,7 @@ export const StringTypes = forwardRef<HTMLDivElement, { number: number }>((props
         <div className="type-info">
           <div className="type-header">&str (String Slice)</div>
           <div className="type-desc">
-            A "fat pointer" to UTF-8 text owned by someone else. 
+            A "fat pointer" to UTF-8 text owned by someone else.
             <br />
             <strong>Where is the data?</strong> If it's a literal like <code>"key"</code>, the text lies in the <strong>Read-Only Data Segment</strong> of your compiled binary. The <code>&str</code> simply points to that fixed location!
           </div>
@@ -360,8 +360,8 @@ fn test_zero_allocation_lookup() {
       <div className="audience-question">
         <strong>💡 Audience Question:</strong>
         <p style={{ fontSize: '0.85rem', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          Our HashMap is defined as <code>HashMap{"<"}String, String{">"}</code>. It stores owned <code>String</code> keys. 
-          How is it possible that we can pass a <code>&str</code> to <code>.get()</code> and it still finds the match? 
+          Our HashMap is defined as <code>HashMap{"<"}String, String{">"}</code>. It stores owned <code>String</code> keys.
+          How is it possible that we can pass a <code>&str</code> to <code>.get()</code> and it still finds the match?
           Keep this question in mind...
         </p>
       </div>

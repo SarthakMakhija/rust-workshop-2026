@@ -100,7 +100,7 @@ export const AtomicsIntro = forwardRef<HTMLDivElement, { number: number }>((prop
       </div>
       <div className="explanation-box" style={{ background: 'var(--accent-light)' }}>
         <h3 style={{ fontSize: '1rem', color: 'var(--accent-color)' }}>The Uninterruptible Promise</h3>
-        No other thread can see an atomic value in a partially-updated state. The processor executes these instructions atomically without needing to trap into the OS kernel. 
+        No other thread can see an atomic value in a partially-updated state. The processor executes these instructions atomically without needing to trap into the OS kernel.
       </div>
       <div className="content-block" style={{ marginTop: '1rem', fontSize: '0.9rem' }}>
         This avoids context switches and allows for lock-free, high-performance synchronization.
@@ -188,7 +188,7 @@ export const MemoryOrderingRelaxed = forwardRef<HTMLDivElement, { number: number
     <Page number={props.number} ref={ref} className="page-right">
       <h2 className="section-title">Relaxed & Modification Order</h2>
       <div className="content-block" style={{ fontSize: '0.85rem' }}>
-        <code>Relaxed</code> ordering guarantees a <strong>Modification Order (MO)</strong>—a strict history of values for a variable.
+        <code>Relaxed</code> ordering guarantees a <strong>Modification Order (MO)</strong>,a strict history of values for a variable.
       </div>
       <div className="code-snippet">
         <CodeBlock code={`static X: AtomicI32 = AtomicI32::new(0);
@@ -222,11 +222,11 @@ export const MemoryOrderingAcqRel = forwardRef<HTMLDivElement, { number: number 
       </div>
       <div style={{ display: 'flex', gap: '10px', marginTop: '1rem' }}>
         <div className="explanation-box" style={{ flex: 1, fontSize: '0.75rem' }}>
-          <strong>Store (Release)</strong>:<br/>
+          <strong>Store (Release)</strong>:<br />
           Pushes previous changes out from L1 caches.
         </div>
         <div className="explanation-box" style={{ flex: 1, fontSize: '0.75rem' }}>
-          <strong>Load (Acquire)</strong>:<br/>
+          <strong>Load (Acquire)</strong>:<br />
           Pulls latest changes in from shared caches.
         </div>
       </div>
@@ -367,7 +367,7 @@ const InvalidationStormTimeline = () => {
       <div style={{ borderLeft: '2px solid var(--accent-color)', paddingLeft: '1rem', position: 'relative', marginTop: '1rem' }}>
         <div style={{ position: 'absolute', left: '-15px', top: '10px', fontSize: '1.5rem' }}>⚡</div>
         <div style={{ fontSize: '0.7rem', fontWeight: 'bold', color: 'var(--accent-color)', marginBottom: '0.5rem' }}>PHASE 2: Thread A updates 'Hits'</div>
-        
+
         {/* Thread Action Callout */}
         <div style={{ position: 'absolute', top: '-40px', left: '20px', padding: '4px 8px', background: 'var(--accent-color)', color: 'white', fontSize: '0.55rem', borderRadius: '4px', fontWeight: 'bold' }}>
           Thread A: <code>fetch_add(Hits)</code>
@@ -377,15 +377,15 @@ const InvalidationStormTimeline = () => {
         <div style={{ display: 'flex', gap: '20px' }}>
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: '0.6rem', fontWeight: 'bold', color: 'var(--accent-color)', marginBottom: '2px' }}>Core 1 L1 (State: M)</div>
-            <div style={{...lineStyle, borderColor: 'var(--accent-color)', boxShadow: '0 0 5px rgba(56, 189, 248, 0.3)' }}>
-              {['H', 'M', 'P', 'G'].map(l => <div key={l} style={slotStyle(l, l==='H')}>{l}</div>)}
+            <div style={{ ...lineStyle, borderColor: 'var(--accent-color)', boxShadow: '0 0 5px rgba(56, 189, 248, 0.3)' }}>
+              {['H', 'M', 'P', 'G'].map(l => <div key={l} style={slotStyle(l, l === 'H')}>{l}</div>)}
               <div style={{ flex: 4, background: '#f5f5f5' }}></div>
             </div>
           </div>
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: '0.6rem', fontWeight: 'bold', color: '#ef4444', marginBottom: '2px' }}>Core 2 L1 (State: I)</div>
-            <div style={{...lineStyle, borderColor: '#ef4444', background: '#fff5f5' }}>
-              {['H', 'M', 'P', 'G'].map(l => <div key={l} style={{...slotStyle(l), opacity: 0.3}}>{l}</div>)}
+            <div style={{ ...lineStyle, borderColor: '#ef4444', background: '#fff5f5' }}>
+              {['H', 'M', 'P', 'G'].map(l => <div key={l} style={{ ...slotStyle(l), opacity: 0.3 }}>{l}</div>)}
               <div style={{ flex: 4, background: '#ffebeb' }}></div>
             </div>
           </div>
@@ -421,7 +421,7 @@ export const FalseSharingBad = forwardRef<HTMLDivElement, { number: number }>((p
       <div className="content-block" style={{ fontSize: '0.8rem' }}>
         Cores own data in <b>64-byte chunks</b> (called a <b>cache-line</b>). While 64 bytes is the most common size, it is not universal. Because our counters share a single line, updating one causes hardware collisions for others.
       </div>
-      
+
       <InvalidationStormTimeline />
 
       <div className="content-block" style={{ marginTop: '0.8rem', fontSize: '0.8rem', fontStyle: 'italic' }}>

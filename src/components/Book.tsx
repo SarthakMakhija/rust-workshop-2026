@@ -158,6 +158,15 @@ import {
   CompilerAsGuard,
   Section13Summary
 } from './sections/section13/Index';
+import {
+  Section14Cover,
+  Stage14Roadmap,
+  TheBuilderPattern,
+  CacheBuilderImpl,
+  IntegrationTestingIntro,
+  CacheIntegrationTest,
+  WorkshopConclusion
+} from './sections/section14/Index';
 
 const Book: React.FC = () => {
   const bookRef = useRef<any>(null);
@@ -367,6 +376,15 @@ const Book: React.FC = () => {
         <TypeStateConcept number={129} />
         <CompilerAsGuard number={130} />
         <Section13Summary number={131} />
+
+        {/* Stage 14 */}
+        <Section14Cover number={132} />
+        <Stage14Roadmap number={133} />
+        <TheBuilderPattern number={134} />
+        <CacheBuilderImpl number={135} />
+        <IntegrationTestingIntro number={136} />
+        <CacheIntegrationTest number={137} />
+        <WorkshopConclusion number={138} />
       </HTMLFlipBook>
 
       <div className="controls">
