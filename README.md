@@ -1,4 +1,4 @@
-# Rust Workshop 2026: The Mechanics of Memory & Safety
+# Rust Workshop 2026: Build a concurrent cache in Rust
 
 ![Rust Workshop 2026 Banner](./public/social-preview-v2.png)
 
