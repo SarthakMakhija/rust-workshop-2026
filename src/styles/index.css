@@ -431,3 +431,39 @@ button:hover {
     margin: 1rem 0;
   }
 }
+
+/* Table of Contents Styling */
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
+.toc-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed rgba(79, 70, 229, 0.2);
+}
+
+.toc-item:last-child {
+  border-bottom: none;
+}
+
+.toc-stage {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  letter-spacing: 0.1rem;
+  margin-bottom: 2px;
+}
+
+.toc-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--text-color);
+}
