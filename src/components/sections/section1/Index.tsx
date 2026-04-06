@@ -10,7 +10,7 @@ export const WorkshopCover = forwardRef<HTMLDivElement, {}>((props, ref) => {
         <div className="cover-decoration" />
         <h1 className="cover-title">RUST WORKSHOP</h1>
         <div className="cover-subtitle" style={{ marginTop: '1rem', color: 'var(--accent-color)', letterSpacing: '2px', fontWeight: 'bold' }}>
-          BUILD A CONCURRENT <br /> CACHE IN RUST
+          Build a concurrent <br /> cache in Rust
         </div>
         <div className="cover-decoration" />
         <div className="cover-subtitle" style={{ marginTop: '2rem', fontStyle: 'italic' }}>
@@ -20,7 +20,7 @@ export const WorkshopCover = forwardRef<HTMLDivElement, {}>((props, ref) => {
           <div style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '3px', opacity: 0.5, marginBottom: '0.3rem' }}>
             by
           </div>
-          <div style={{ fontSize: '1.1rem', letterSpacing: '2px', fontWeight: '500', textTransform: 'uppercase', opacity: 0.9 }}>
+          <div style={{ fontSize: '1.1rem', letterSpacing: '2px', fontWeight: '500', opacity: 0.9 }}>
             Sarthak Makhija
           </div>
         </div>
