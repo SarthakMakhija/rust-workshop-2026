@@ -194,9 +194,12 @@ export const WorkshopConclusion = forwardRef<HTMLDivElement, { number: number }>
         Good luck out there, Rustaceans. 🦀
       </div>
       <div style={{ marginTop: '2.5rem', textAlign: 'center', borderTop: '1px solid rgba(0,0,0,0.1)', paddingTop: '1.5rem', opacity: 0.7, fontSize: '0.8rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-        <span><em>By Sarthak Makhija</em></span>
-        <img src="/rust-workshop-2026/caizin-logo.png" alt="Caizin" style={{ height: '35px', marginTop: '10px', marginBottom: '10px' }} />
-        <span style={{ fontSize: '0.7rem', display: 'block' }}>Special thanks to <strong>Antigravity</strong> for technical partnership.</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '10px' }}>
+          <span><em>By Sarthak Makhija</em></span>
+          <div style={{ borderLeft: '1px solid rgba(0,0,0,0.2)', height: '35px' }}></div>
+          <img src="/rust-workshop-2026/caizin-logo.png" alt="Caizin" style={{ height: '55px' }} />
+        </div>
+        <span style={{ fontSize: '0.7rem', display: 'block', marginTop: '5px' }}>Special thanks to <strong>Antigravity</strong> for technical partnership.</span>
       </div>
     </Page>
   );
