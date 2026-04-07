@@ -10,9 +10,9 @@ export const Section13Cover = forwardRef<HTMLDivElement, { number: number }>((pr
         <div className="cover-decoration" />
         <h1 className="cover-title">STAGE 13</h1>
         <div className="cover-decoration" />
-        <div className="cover-subtitle">The Type-State Pattern</div>
+        <div className="cover-subtitle">Graceful Termination</div>
         <div className="cover-subtitle" style={{ marginTop: '2rem', fontStyle: 'italic' }}>
-          Encoding State into Types.
+          Lifecycle Management & Type-States.
         </div>
       </div>
       <div className="page-number">{props.number}</div>
